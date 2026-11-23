@@ -87,4 +87,10 @@ public class AlarmStrategy {
     @Column("at_members")
     private String atMembers;
 
+    @Column("strategy_source")
+    private Integer strategySource;
+
+    @Column("idempotent_hash")
+    private String idempotentHash;
+
 }
