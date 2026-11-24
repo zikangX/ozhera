@@ -29,6 +29,11 @@ public interface AppAlarmStrategyDao {
     AlarmStrategy getById(Integer id);
 
     /**
+     * 按幂等 hash 查询策略，hash 为空时返回 null
+     */
+    AlarmStrategy getByIdempotentHash(String idempotentHash);
+
+    /**
      * 清洗数据专用
      * @param type
      * @return

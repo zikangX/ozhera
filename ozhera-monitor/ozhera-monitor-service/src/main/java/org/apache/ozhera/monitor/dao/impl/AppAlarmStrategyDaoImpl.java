@@ -62,6 +62,14 @@ public class AppAlarmStrategyDaoImpl implements AppAlarmStrategyDao {
         return dao.fetch(AlarmStrategy.class, id);
     }
 
+    @Override
+    public AlarmStrategy getByIdempotentHash(String idempotentHash) {
+        if (StringUtils.isBlank(idempotentHash)) {
+            return null;
+        }
+        return dao.fetch(AlarmStrategy.class, Cnd.where("idempotent_hash", "=", idempotentHash));
+    }
+
     /**
      * 清洗数据专用
      * @param type
