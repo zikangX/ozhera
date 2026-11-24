@@ -255,7 +255,7 @@ CREATE TABLE "app_alarm_strategy"
     "at_members"      TEXT DEFAULT NULL,
     "services"        TEXT DEFAULT NULL,
     "strategy_source" SMALLINT NOT NULL DEFAULT 0,
-    "idempotent_hash" VARCHAR(64) DEFAULT NULL
+    "idempotent_hash" VARCHAR(128) DEFAULT NULL
 );
 CREATE UNIQUE INDEX "uk_app_alarm_strategy_idempotent_hash" ON "app_alarm_strategy" ("idempotent_hash");
 COMMENT ON COLUMN "app_alarm_strategy"."strategy_source" IS '来源：0=个人创建 1=企业统一下发';
