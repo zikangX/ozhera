@@ -25,12 +25,12 @@
     <parent>
         <groupId>org.apache.ozhera</groupId>
         <artifactId>ozhera-parent</artifactId>
-        <version>2.2.7-incubating</version>
+        <version>2.2.7.1-SNAPSHOT</version>
     </parent>
 
     <artifactId>ozhera-monitor</artifactId>
     <packaging>pom</packaging>
-    <version>2.2.7-incubating</version>
+    <version>2.2.7.1-SNAPSHOT</version>
     <modules>
         <module>ozhera-monitor-server</module>
         <module>ozhera-monitor-service</module>
