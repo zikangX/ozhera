@@ -150,7 +150,7 @@ public class AppAlarmStrategyDaoImpl implements AppAlarmStrategyDao {
             sqlB.append("select an.id").append(",an.iamId").append(",an.appId").append(",an.appName").append(",an.strategy_type")
                     .append(",an.strategy_name").append(",an.desc").append(",an.creater").append(",an.status").append(",an.alert_team")
                     .append(",an.create_time").append(",an.update_time").append(",an.group3").append(",an.group4").append(",an.group5")
-                    .append(",an.envs,an.alert_members,at_members");
+                    .append(",an.envs,an.alert_members,at_members,an.strategy_source");
 
             if(strategy.getStrategyType() != null && strategy.getStrategyType().equals(AlarmStrategyType.TESLA.getCode())){
                 sqlB.append(",an.creater as owner  from app_alarm_strategy an where 1=1 ");
@@ -263,6 +263,7 @@ public class AppAlarmStrategyDaoImpl implements AppAlarmStrategyDao {
                         info.setStrategyDesc(rs.getString("desc"));
                         info.setStatus(rs.getInt("status"));
                         info.setIamId(rs.getInt("iamId"));
+                        info.setStrategySource(rs.getInt("strategy_source"));
                         String owner = rs.getString("owner");
                         if(AlarmStrategyType.TESLA.getCode().equals(strategyType)){
                             if (user.equals(rs.getString("creater"))) {
@@ -316,7 +317,7 @@ public class AppAlarmStrategyDaoImpl implements AppAlarmStrategyDao {
             sqlB.append("select an.id").append(",an.iamId").append(",an.appId").append(",an.appName").append(",an.strategy_type")
                     .append(",an.strategy_name").append(",an.desc").append(",an.creater").append(",an.status").append(",an.alert_team")
                     .append(",an.create_time").append(",an.update_time").append(",an.group3").append(",an.group4").append(",an.group5")
-                    .append(",an.envs,an.alert_members,at_members");
+                    .append(",an.envs,an.alert_members,at_members,an.strategy_source");
 
             sqlB.append(" from ")
                     .append("app_alarm_strategy an ").append(" where 1=1 ");
@@ -389,6 +390,7 @@ public class AppAlarmStrategyDaoImpl implements AppAlarmStrategyDao {
                         info.setStrategyDesc(rs.getString("desc"));
                         info.setStatus(rs.getInt("status"));
                         info.setIamId(rs.getInt("iamId"));
+                        info.setStrategySource(rs.getInt("strategy_source"));
                         String envs = rs.getString("envs");
                         info.convertEnvList(envs);
                         String alertMembers = rs.getString("alert_members");

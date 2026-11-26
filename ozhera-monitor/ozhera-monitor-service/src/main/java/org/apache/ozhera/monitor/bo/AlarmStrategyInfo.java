@@ -72,6 +72,8 @@ public class AlarmStrategyInfo {
     private List<String> alertMembers;//List of alarm personnel
     private List<String> atMembers;//Alarm at(@) Personnel List
 
+    private Integer strategySource;//Strategy source: 0=user created, 1=company issued
+
     public void convertEnvList(String json){
         if(StringUtils.isBlank(json)){
             return;
